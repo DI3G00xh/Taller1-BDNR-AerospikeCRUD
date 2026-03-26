@@ -1,0 +1,13 @@
+version: '3.8'
+services:
+  db:
+    image: aerospike/aerospike-server:latest
+    ports:
+      - "3030:3000"
+
+  api:
+    build: .
+    ports:
+      - "4000:4000"
+    depends_on:
+      - db
